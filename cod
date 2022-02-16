@@ -1,0 +1,132 @@
+#include <iostream>
+#include <math.h>
+#include <string.h>
+using namespace std;
+
+
+class Car
+{       
+    public :
+    string c_manufacturer;
+        string c_model;
+        int c_id;
+        int c_speed;
+        int c_lat, c_lon;
+        
+public:
+    string getManufacturer()
+    {
+        return c_manufacturer;
+    }
+
+    void setManufacturer(string manufacturer)
+    {
+         c_manufacturer=manufacturer;
+    }
+
+    string getModel()
+    {
+        return c_model;
+    }
+
+    void setModel(string model)
+    {
+         c_model = model;
+    }
+
+    int getID()
+    {
+        return c_id;
+    }
+
+    void setID(int id)
+    {
+         c_id = id;
+    }
+
+    int getSpeed()
+    {
+        return c_speed;
+    }
+
+    void setSpeed(int speed)
+    {
+         c_speed = speed;
+    }
+
+    int getLatitude()
+    {
+        return c_lat;
+    }
+
+    void setLatitude(int latitude)
+    {
+         c_lat = latitude;
+    }
+
+    int getLongitude()
+    {
+        return c_lon;
+    }
+
+    void setLongitude(int longitude)
+    {
+         c_lon = longitude;
+    }
+    
+    
+int Distance(int x1, int x2, int y1, int y2)
+{
+    return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+}
+ 
+
+};
+
+int main() 
+{
+  int min_d,current_min;
+  int flag_car;
+  // Create Car objects and call the constructor with different values
+  Car car1;
+ 
+  car1.setManufacturer("Tesla");
+  car1.setModel("SE");
+  car1.setID(1);
+  car1.setSpeed(22);
+  car1.setLongitude(12);
+  car1.setLatitude(22);
+
+  Car obj[10];
+  obj[0].setManufacturer("Mercedes");
+  obj[0].setModel("E");
+  obj[0].setID(2);
+  obj[0].setSpeed(24);
+  obj[0].setLongitude(1000);
+  obj[0].setLatitude(2200);
+  
+  obj[1].setManufacturer("BMW");
+  obj[1].setModel("X6");
+  obj[1].setID(3);
+  obj[1].setSpeed(23);
+  obj[1].setLongitude(10);
+  obj[1].setLatitude(20);
+ 
+  for(int i=0; i<=1; i++)
+  {
+      
+      
+    current_min = car1.Distance(car1.c_lat,obj[i].c_lat,car1.c_lon,obj[i].c_lon);
+    if(current_min<min_d)
+    {
+        min_d=current_min;
+        flag_car=obj[i].c_id;
+    }
+  }
+  cout<<flag_car;
+ 
+}
+
+
+
+
